@@ -21,7 +21,7 @@ namespace Module1
             int studentZipCode;
             
             // proffesor information
-            string proffesorFirstName, professorLastName, professorAddressLine1, professorAddressLine2, professorCity, professorState, professorCountry = string.Empty;
+            string professorFirstName, professorLastName, professorAddressLine1, professorAddressLine2, professorCity, professorState, professorCountry = string.Empty;
             DateTime professorBirthDate;
             int professorZipCode;
 
@@ -31,7 +31,7 @@ namespace Module1
 
             // university programm
             string programName = string.Empty;
-            string departmentHeade = string.Empty;
+            string departmentHead = string.Empty;
 
             // course information
             string courseName = string.Empty;
