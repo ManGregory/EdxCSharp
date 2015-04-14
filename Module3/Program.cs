@@ -1,86 +1,75 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Module3
 {
     class Program
     {
-        private enum Degree
+        private static void GetStudentInfo()
         {
-            Bachelor,
-            Master
+            Console.WriteLine("Enter the student's first name: ");
+            string firstName = Console.ReadLine();
+            Console.WriteLine("Enter the student's second name: ");
+            string lastName = Console.ReadLine();
+            Console.WriteLine("Enter the student's address line 1");
+            string addressLine1 = Console.ReadLine();
+            Console.WriteLine("Enter the student's address line 2");
+            string addressLine2 = Console.ReadLine();
+            PrintStudentDetails(firstName, lastName, addressLine1, addressLine2);
         }
 
-        private struct Student
+        private static void PrintStudentDetails(string firstName, string lastName, string addressLine1, string addressLine2)
         {
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
-            public DateTime BirthDate { get; set; }
-            public string AddressLine1 { get; set; }
-            public string AddressLine2 { get; set; }
-            public int ZipCode { get; set; }
-            public string City { get; set; }
-            public string State { get; set; }
-            public string Country { get; set; }
+            Console.WriteLine("STUDENT INFO");
+            Console.WriteLine("Name: {0} {1}", firstName, lastName);
+            Console.WriteLine("Addresses: {0}, {1}", addressLine1, addressLine2);
+            Console.WriteLine();
         }
 
-        private struct Teacher
+        private static void GetProfessorInfo()
         {
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
-            public DateTime BirthDate { get; set; }
-            public string AddressLine1 { get; set; }
-            public string AddressLine2 { get; set; }
-            public int ZipCode { get; set; }
-            public string City { get; set; }
-            public string State { get; set; }
-            public string Country { get; set; }            
+            Console.WriteLine("Enter the professor's first name: ");
+            string firstName = Console.ReadLine();
+            Console.WriteLine("Enter the professor's second name: ");
+            string lastName = Console.ReadLine();
+            Console.WriteLine("Enter the professor's address line 1");
+            string addressLine1 = Console.ReadLine();
+            Console.WriteLine("Enter the professor's address line 2");
+            string addressLine2 = Console.ReadLine();
+            PrintProfessorDetails(firstName, lastName, addressLine1, addressLine2);
         }
 
-        private struct UniversityProgram
+        private static void PrintProfessorDetails(string firstName, string lastName, string addressLine1, string addressLine2)
         {
-            public string Name { get; set; }
-            public Degree Degree { get; set; }
-            public int RequiredCredits { get; set; }
+            Console.WriteLine("PROFESSOR INFO");
+            Console.WriteLine("Name: {0} {1}", firstName, lastName);
+            Console.WriteLine("Addresses: {0}, {1}", addressLine1, addressLine2);
+            Console.WriteLine();
         }
 
-        private struct Course
+        private static void GetCourseInfo()
         {
-            public string Name { get; set; }
-            public Teacher Teacher { get; set; }
+            Console.WriteLine("Enter the course name: ");
+            string courseName = Console.ReadLine();
+            PrintCourseDetails(courseName);
+        }
+
+        private static void PrintCourseDetails(string courseName)
+        {
+            Console.WriteLine("Course: {0}", courseName);
+        }
+
+        private static void ValidateStudentBirthdate()
+        {
+            throw new NotImplementedException();
         }
 
         static void Main(string[] args)
         {
-            const int studentsCount = 5;
-            Student[] students = new Student[studentsCount];
-            // fill students array 
-            for (int studIndex = 0; studIndex < students.Length; studIndex++)
-            {
-                students[studIndex].FirstName = "Petr";
-                students[studIndex].LastName = "Petrov";
-                students[studIndex].AddressLine1 = string.Format("address 1 for student {0}", studIndex);
-                students[studIndex].AddressLine2 = string.Format("address 2 for student {0}", studIndex);
-                students[studIndex].City = string.Format("city for student {0}", studIndex);
-                students[studIndex].Country = string.Format("country for student {0}", studIndex);
-                students[studIndex].ZipCode = studIndex;
-                students[studIndex].BirthDate = DateTime.Now;
-            }
-
-            // write to console info about students
-            for (int studIndex = 0; studIndex < students.Length; studIndex++)
-            {
-                Console.WriteLine("STUDENT INFO");
-                Console.WriteLine("Name: {0} {1}", students[studIndex].FirstName, students[studIndex].LastName);
-                Console.WriteLine("BirthDate: {0}", students[studIndex].BirthDate);
-                Console.WriteLine("Address: {0} {1}", students[studIndex].AddressLine1, students[studIndex].AddressLine2);
-                Console.WriteLine("ZipCode: {0}", students[studIndex].ZipCode);
-                Console.WriteLine("City {0} in {1}", students[studIndex].City, students[studIndex].Country);
-                Console.WriteLine();
-            }
+            GetStudentInfo();
+            GetProfessorInfo();
+            GetCourseInfo();
+            Console.ReadLine();
+            ValidateStudentBirthdate();
             Console.ReadLine();
         }
     }
